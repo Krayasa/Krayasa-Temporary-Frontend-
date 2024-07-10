@@ -1,0 +1,55 @@
+mutation updateJob {
+    updateJob(
+        tags: [1]
+        pk: "11"
+        title: "Bartender"
+        description: "Waiter Vacancy in Hotel"
+        location: "Europe"
+        type: "1"
+        category: "Agriculture"
+        lastDate: "2025-01-01"
+        companyName: "Krayasa HOtel"
+        companyDescription: "Top in hotel chain"
+        website: "www.atkans.com"
+        salary: 100000
+        vacancy: 10
+    ) {
+        success
+        errors
+    }
+}
+
+mutation updateJob(
+    $tags: [Int!]
+    $pk: String!
+    $title: String!
+    $description: String!
+    $location: String!
+    $type: String!
+    $category: String!
+    $lastDate: String!
+    $companyName: String!
+    $companyDescription: String!
+    $website: String!
+    $salary: Int!
+    $vacancy: Int!
+) {
+    updateJob(
+        tags: [$tags]
+        pk: $pk
+        title: $title
+        description: $description
+        location: $location
+        type: $type
+        category: $category
+        lastDate: $lastDate
+        companyName: $companyName
+        companyDescription: $companyDescription
+        website: $website
+        salary: $salary
+        vacancy: $vacancy
+    ) {
+        success
+        errors
+    }
+}

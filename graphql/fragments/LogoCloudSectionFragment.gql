@@ -1,0 +1,9 @@
+#import "../fragments/LogoCloudBlockFragment.gql"
+
+fragment LogoCloudSectionFragment on LogoCloudSection{
+  blockType
+  description
+  countries{
+    ...LogoCloudBlockFragment
+  }
+}

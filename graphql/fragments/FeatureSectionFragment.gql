@@ -1,0 +1,14 @@
+#import "../fragments/FeatureBlockFragment.gql"
+
+fragment FeatureSectionFragment on FeatureSection{
+    id
+    blockType
+    field 
+    heading
+    hash 
+    features {              
+        blockType
+        field
+        ...FeatureBlockFragment
+    }
+}

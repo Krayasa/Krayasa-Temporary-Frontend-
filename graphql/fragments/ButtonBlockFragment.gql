@@ -1,0 +1,8 @@
+fragment ButtonBlockFragment on ButtonBlock{
+    __typename               
+    text
+    link
+    btntype
+}
+
+

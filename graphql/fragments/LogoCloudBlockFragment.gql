@@ -1,0 +1,17 @@
+fragment LogoCloudBlockFragment on LogoCloudBlock{
+  blockType
+  country
+    image{
+  	    id
+        title
+        file
+        width
+        height
+        createdAt
+        fileSize
+        fileHash
+        aspectRatio
+        sizes               
+        isSvg
+    }
+}

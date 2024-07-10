@@ -1,0 +1,10 @@
+#import "../fragments/ArticleBlockFragment.gql"
+
+fragment ArticleSectionFragment on ArticleSection{
+  blockType
+  heading
+  description
+  articles{
+    ...ArticleBlockFragment
+  }
+}

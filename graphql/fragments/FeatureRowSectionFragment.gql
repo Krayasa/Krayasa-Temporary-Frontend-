@@ -1,0 +1,23 @@
+#import "../fragments/FeatureBlockFragment.gql"
+
+fragment FeatureRowSectionFragment on FeatureRowSection{
+    heading
+    description
+    longdescription
+    image {
+        id
+        title
+        file
+        width
+        height
+        createdAt
+        fileSize
+        fileHash
+        aspectRatio
+        sizes               
+        isSvg
+    }
+    features{
+        ...FeatureBlockFragment
+    }
+}

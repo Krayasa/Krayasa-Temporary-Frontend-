@@ -1,0 +1,51 @@
+#import "../fragments/HeroSectionFragment.gql"
+#import "../fragments/FeatureSectionFragment.gql"
+#import "../fragments/TestimonialSectionFragment.gql"
+#import "../fragments/FaqSectionFragment.gql"
+#import "../fragments/TeamSectionFragment.gql"
+#import "../fragments/CarouselSectionFragment.gql"
+#import "../fragments/ArticleSectionFragment.gql"
+#import "../fragments/LogoCloudSectionFragment.gql"
+#import "../fragments/ContactSectionFragment.gql"
+#import "../fragments/FeatureRowSectionFragment.gql"
+
+
+query LandingPage{
+    landingPage(id: 5) {
+        __typename
+        id
+        path
+        depth
+        numchild
+        translationKey
+        live
+        expired
+        locked
+        title
+        draftTitle
+        slug
+        contentType
+        urlPath
+        seoTitle
+        showInMenus
+        searchDescription
+        latestRevisionCreatedAt
+        pageType
+        url
+        body {
+            id
+            blockType
+            field
+            ...HeroSectionFragment
+            ...CarouselSectionFragment
+            ...FeatureSectionFragment
+            ...TeamSectionFragment
+            ...TestimonialSectionFragment
+            ...FaqSectionFragment
+            ...LogoCloudSectionFragment
+            ...ArticleSectionFragment
+            ...ContactSectionFragment
+            ...FeatureRowSectionFragment
+        }
+    }
+}

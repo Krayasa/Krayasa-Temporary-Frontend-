@@ -1,0 +1,18 @@
+mutation EmployerRegister(
+    $companyName: String!
+    $companyAddress: String!
+    $email: String!
+    $password1: String!
+    $password2: String!
+) {
+    employerRegister(
+        companyName: $companyName
+        companyAddress: $companyAddress
+        email: $email
+        password1: $password1
+        password2: $password2
+    ) {
+        success
+        errors
+    }
+}

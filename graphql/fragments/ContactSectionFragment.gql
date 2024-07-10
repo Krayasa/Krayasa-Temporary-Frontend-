@@ -1,0 +1,14 @@
+#import "../fragments/ButtonBlockFragment.gql"
+
+fragment ContactSectionFragment on ContactSection{
+  heading
+  description
+  location1
+  location2
+  phone
+  email
+  __typename
+  button{
+    ...ButtonBlockFragment
+  }
+}
