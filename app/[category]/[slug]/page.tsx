@@ -19,6 +19,8 @@ export default async function ArticleView({
         data = null;
     }
 
+    console.log(data.component_props.body);
+
     const options = {
         replace: (domNode) => {
             if (domNode.type === 'tag') {
@@ -106,7 +108,9 @@ export default async function ArticleView({
             {data ? (
                 <div className="max-w-3xl mx-auto">
                     {parse(title, options)}
-                    {parse(data.component_props.rich_text_1, options)}
+                    {data.component_props.body.map((item, index) => (
+                        <div key={index}>{parse(item.value, options)}</div>
+                    ))}
                 </div>
             ) : (
                 <CustomErrorMessage message="Failed to load article" />
