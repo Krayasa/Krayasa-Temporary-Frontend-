@@ -7,15 +7,15 @@ import { Metadata } from 'next';
 
 var contentSections;
 
-export async function generateMetadata({ params }) {
+export async function generateMetadata() {
     try {
-        contentSections = await fetchPageContent(params.category);
+        contentSections = await fetchHomeContent();
         return {
             title: contentSections.component_props.seo_title,
             description: contentSections.component_props.search_description,
             metadataBase: new URL('https://krayasa.com'),
             alternates: {
-                canonical: `/${params.category}`,
+                canonical: '/',
             },
             openGraph: {
                 title: contentSections.component_props.seo.seo_og_title,
@@ -43,9 +43,9 @@ export async function generateMetadata({ params }) {
 //     description: `${contentSections?.seo?.seo_meta_description}`,
 // };
 
-const CategoryPages = async ({ params }) => {
+const CatchingAllPage = async () => {
     try {
-        contentSections = await fetchPageContent(params.category);
+        contentSections = await fetchHomeContent();
         return (
             <div className="">
                 {contentSections.component_props.body.map((section, index) =>
@@ -58,4 +58,4 @@ const CategoryPages = async ({ params }) => {
     }
 };
 
-export default CategoryPages;
+export default CatchingAllPage;

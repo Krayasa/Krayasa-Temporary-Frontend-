@@ -10992,7 +10992,7 @@ next-i18next@^15.2.0:
 
 next-seo@^6.5.0:
   version "6.5.0"
-  resolved "https://registry.npmjs.org/next-seo/-/next-seo-6.5.0.tgz"
+  resolved "https://registry.yarnpkg.com/next-seo/-/next-seo-6.5.0.tgz#5ccfbcfaced9d296499aa88f074b9e82e252a9c8"
   integrity sha512-MfzUeWTN/x/rsKp/1n0213eojO97lIl0unxqbeCY+6pAucViHDA8GSLRRcXpgjsSmBxfCFdfpu7LXbt4ANQoNQ==
 
 next@14.1.0:

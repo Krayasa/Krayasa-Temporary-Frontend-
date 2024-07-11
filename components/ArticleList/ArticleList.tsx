@@ -4,6 +4,8 @@ import { fetchChildrenContent } from '@/utils/fetchPages';
 import CustomErrorMessage from '@/components/CustomErrorMessage/CustomErrorMessage';
 
 export default async function ArticleList({ data, category, slug }) {
+    const imgDefault = process.env.DEFAULT_ARTICLE_IMAGE_LINK;
+
     let articles;
     try {
         articles = await fetchChildrenContent(slug);
@@ -33,17 +35,19 @@ export default async function ArticleList({ data, category, slug }) {
                                     className="relative z-10 rounded-2xl bg-gray-50 dark:bg-gray-900 p-5 font-medium dark:text-gray-400 ">
                                     {/* <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" /> */}
                                     <div className="relative w-full">
-                                        {/* <Image
+                                        <Image
                                             //   src={article.image.file}
-                                            src={article.seo_image}
+                                            src={
+                                                article.seo_image || imgDefault
+                                            }
                                             alt={
-                                                article.title ??
-                                                'Speed Wings Human Resource'
+                                                article.title ||
+                                                'Krayasa E commerce platform'
                                             }
                                             width={500}
                                             height={300}
                                             className="aspect-[16/9] w-full object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
-                                        /> */}
+                                        />
                                     </div>
                                     <div className="max-w-xl">
                                         <div className="mt-8 flex items-center gap-x-4 text-xs">

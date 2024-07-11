@@ -3,6 +3,40 @@ import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import parse, { domToReact } from 'html-react-parser';
 import CustomErrorMessage from '@/components/CustomErrorMessage';
+import { ArticleJsonLd } from 'next-seo';
+import Image from 'next/image';
+
+let data = null;
+
+export async function generateMetadata({ params }) {
+    try {
+        data = await fetchArticleContent(params.category, params.slug);
+        return {
+            title: data.component_props.seo_title,
+            description: data.component_props.search_description,
+            metadataBase: new URL('https://krayasa.com'),
+            alternates: {
+                canonical: `/${params.category}/${params.slug}`,
+            },
+            openGraph: {
+                title: data.component_props.seo.seo_og_title,
+                description: data.component_props.seo.seo_og_description,
+                type: 'article',
+                locale: 'en_US',
+                images: [
+                    {
+                        url: data.component_props.seo.seo_og_image,
+                        width: 800,
+                        height: 600,
+                    },
+                ],
+            },
+            // seo_og_url: data.component_props.seo.seo_og_url,
+        };
+    } catch (error) {
+        console.error('Error fetching content', error);
+    }
+}
 
 export default async function ArticleView({
     params,
@@ -18,8 +52,6 @@ export default async function ArticleView({
         // Optionally, you can set a default value for `data` or show an error message to the user
         data = null;
     }
-
-    console.log(data.component_props.body);
 
     const options = {
         replace: (domNode) => {
@@ -111,6 +143,42 @@ export default async function ArticleView({
                     {data.component_props.body.map((item, index) => (
                         <div key={index}>{parse(item.value, options)}</div>
                     ))}
+                    <Image
+                        src="/dot.jpg"
+                        alt="Krayasa E commerce platform"
+                        height={1}
+                        width={1}></Image>
+                    <Image
+                        src="/dot.jpg"
+                        alt="Krayasa E commerce platform"
+                        height={1}
+                        width={1}></Image>
+                    <Image
+                        src="/dot.jpg"
+                        alt="Krayasa E commerce platform"
+                        height={1}
+                        width={1}></Image>
+                    <Image
+                        src="/dot.jpg"
+                        alt="Krayasa E commerce platform"
+                        height={1}
+                        width={1}></Image>
+                    <Image
+                        src="/dot.jpg"
+                        alt="Krayasa E commerce platform"
+                        height={1}
+                        width={1}></Image>
+                    <ArticleJsonLd
+                        useAppDir={true}
+                        type="BlogPosting"
+                        url={`https://krayasa.com/${params.category}/${params.slug}`}
+                        title={data.component_props.seo_title}
+                        description={data.component_props.search_description}
+                        images={[data.component_props.seo.seo_og_image]}
+                        datePublished={data.component_props.last_published_at}
+                        dateModified={data.component_props.last_published_at}
+                        authorName="Aaraj Bhattarai"
+                    />
                 </div>
             ) : (
                 <CustomErrorMessage message="Failed to load article" />

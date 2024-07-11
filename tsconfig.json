@@ -35,7 +35,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx",
-    "app/page.js", "app/(protected)/ApplicantView",
+    "app/page.tsx", "app/(protected)/ApplicantView",
     // "utils/*.tsx",
     "graphql/**/*.gql",
   ],
