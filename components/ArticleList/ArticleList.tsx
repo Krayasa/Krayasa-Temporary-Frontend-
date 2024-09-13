@@ -8,10 +8,13 @@ export default async function ArticleList({ data, category, slug }) {
 
     let articles;
     try {
+        console.log('slug:', slug);
         articles = await fetchChildrenContent(slug);
+        console.log('-------------------------------------------');
+        console.log('articles:', articles);
     } catch (error) {
         console.error('Error fetching articles:', error);
-        // return <CustomErrorMessage message="Failed to fetch articles" />;
+
     }
     return (
         <>

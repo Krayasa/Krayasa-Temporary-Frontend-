@@ -1,7 +1,7 @@
 export const fetchHomeContent = async () => {
     try {
         const response = await fetch(
-            `${process.env.NEXT_PUBLIC_WT_SWAGGER_API}/wt/api/nextjs/v1/page_by_path/?html_path=/krayasa`,
+            `http://speedwings.centralindia.cloudapp.azure.com:8084/wt/api/nextjs/v1/page_by_path/?html_path=/krayasa`,
             {
                 method: 'GET',
             }
@@ -70,6 +70,8 @@ export const fetchChildrenContent = async (category) => {
     try {
         const response = await fetch(
             `${process.env.NEXT_PUBLIC_WT_SWAGGER_API}/wt/api/nextjs/v1/show_children/?html_path=/krayasa/${category}`,
+            // `${process.env.NEXT_PUBLIC_WT_SWAGGER_API}/wt/api/nextjs/v1/show_children/?html_path=/areas-of-expertise/${category}`,
+
             // `http:localhost:8081/wt/api/nextjs/v1/page_by_path/?html_path=/areas-of-expertise/${category}/${slug}`,
 
             {
